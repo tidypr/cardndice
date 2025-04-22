@@ -14,12 +14,12 @@ import {
   GiInvertedDice5,
   GiInvertedDice6,
   GiPlainSquare,
-  GiDiceSixFacesOne,
-  GiDiceSixFacesTwo,
-  GiDiceSixFacesThree,
-  GiDiceSixFacesFour,
-  GiDiceSixFacesFive,
-  GiDiceSixFacesSix,
+  // GiDiceSixFacesOne,
+  // GiDiceSixFacesTwo,
+  // GiDiceSixFacesThree,
+  // GiDiceSixFacesFour,
+  // GiDiceSixFacesFive,
+  // GiDiceSixFacesSix,
 } from "react-icons/gi";
 import { motion } from "motion/react";
 

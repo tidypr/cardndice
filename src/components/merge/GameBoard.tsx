@@ -17,7 +17,7 @@ export default function GameBoard({
       <div className="grid grid-rows-5 gap-3 w-fit">
         {gameBoard.map((row, rowIndex) => (
           <div className="grid grid-cols-5 gap-3" key={rowIndex}>
-            {row.map((col, colIndex) => {
+            {row.map((_, colIndex) => {
               const isNum = gameBoard[rowIndex][colIndex] !== null;
               // <div key={colIndex}>
               return (

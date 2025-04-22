@@ -23,7 +23,7 @@ export default function MergeDice() {
   const [gameBoard, setGameBoard] = useState<gameBoard>(initGameboard);
   const [randomNumber, setRandomNumber] = useState(1);
   const [gameScore, setGameScore] = useState(0);
-  const [isGameOver, setIsGameOver] = useState(false);
+  // const [isGameOver, setIsGameOver] = useState(false);
 
   const handleDiceClick = (rowIndex: number, colIndex: number) => {
     setGameBoard((prevBoard: gameBoard) => {
@@ -48,7 +48,6 @@ export default function MergeDice() {
     setGameBoard(initGameboard);
     setGameScore(0);
     setRandomNumber(randomNumberDice(1, 6));
-    setIsGameOver(false);
   }
 
   // 빈칸이 없고 게임이 끝나지 않은 경우
