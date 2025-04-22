@@ -69,7 +69,7 @@ export default function MergeDice() {
       </section>
       {!hasNull && (
         <Modal>
-          <div className="flex flex-col items-center justify-center gap-4 p-8 bg-red-400 dark:bg-zinc-900 rounded-lg shadow-lg w-1/3">
+          <div className="flex flex-col items-center justify-center gap-4 p-8 bg-gray-200 dark:bg-zinc-900 rounded-lg shadow-lg w-1/3">
             <h2 className="text-2xl font-semibold text-zinc-700 dark:text-zinc-200">
               Game Over
             </h2>
