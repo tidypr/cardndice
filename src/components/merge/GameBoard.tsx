@@ -6,6 +6,7 @@ type GameBoardProps = {
 };
 
 import DisplayDice from "../merge/DisplayDice";
+import { motion } from "motion/react";
 
 export default function GameBoard({
   gameBoard,
@@ -13,25 +14,25 @@ export default function GameBoard({
 }: GameBoardProps) {
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <div className="grid grid-rows-5 gap-2 w-fit">
+      <div className="grid grid-rows-5 gap-3 w-fit">
         {gameBoard.map((row, rowIndex) => (
-          <div className="grid grid-cols-5 gap-2" key={rowIndex}>
+          <div className="grid grid-cols-5 gap-3" key={rowIndex}>
             {row.map((col, colIndex) => {
               const isNum = gameBoard[rowIndex][colIndex] !== null;
               // <div key={colIndex}>
               return (
-                <button
+                <motion.button
                   key={colIndex}
                   disabled={isNum}
-                  className="bg-gray-200 w-16 h-16 rounded-xl flex items-center justify-center"
                   onClick={() => handleDiceClick(rowIndex, colIndex)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <DisplayDice
                     diceNumber={gameBoard[rowIndex][colIndex] || 0}
                   />
-                </button>
+                </motion.button>
               );
-              // </div>`
             })}
           </div>
         ))}

@@ -39,28 +39,34 @@ function findConnectedSameNumbers(
   return connected;
 }
 
-
 export function mergeConnectedDice(
   board: (number | null)[][],
   row: number,
   col: number
-): (number | null)[][] {
+): { board: (number | null)[][]; scoreGained: number } {
   const currentNumber = board[row][col];
-  if (currentNumber === null) return board;
+  if (currentNumber === null) return { board, scoreGained: 0 };
 
   const connected = findConnectedSameNumbers(board, row, col);
 
   if (connected.length < 3) {
-    return board;
+    return { board, scoreGained: 0 };
   }
 
-  // 병합: 중앙만 +1, 나머지는 제거
+  // 점수 계산
+  const scoreGained = currentNumber * connected.length;
+
+  // 병합
   for (const [r, c] of connected) {
     if (r === row && c === col) continue;
     board[r][c] = null;
   }
   board[row][col] = currentNumber + 1;
 
-  // 재귀 병합: 업그레이드된 숫자로 다시 병합 시도
-  return mergeConnectedDice(board, row, col);
+  // 재귀 병합
+  const next = mergeConnectedDice(board, row, col);
+  return {
+    board: next.board,
+    scoreGained: scoreGained + next.scoreGained,
+  };
 }

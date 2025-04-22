@@ -1,6 +1,9 @@
 type DisplayDiceProps = {
+  className?: string;
   fillColor?: boolean;
+  disabled?: boolean;
   diceNumber: number;
+  onClick?: () => void;
 };
 
 import {
@@ -10,6 +13,7 @@ import {
   GiInvertedDice4,
   GiInvertedDice5,
   GiInvertedDice6,
+  GiPlainSquare,
   GiDiceSixFacesOne,
   GiDiceSixFacesTwo,
   GiDiceSixFacesThree,
@@ -17,11 +21,13 @@ import {
   GiDiceSixFacesFive,
   GiDiceSixFacesSix,
 } from "react-icons/gi";
+import { motion } from "motion/react";
 
-export default function DisplayDice({ diceNumber }: DisplayDiceProps) {
+export default function DisplayDice({ diceNumber, ...rest }: DisplayDiceProps) {
   return (
-    <div
-      className={`bg-gray-200 w-16 h-16 rounded-xl flex items-center justify-center`}
+    <motion.div
+      className="bg-gray-200 w-16 h-16 rounded-lg flex items-center justify-center"
+      {...rest}
     >
       {diceNumber === 1 && (
         <GiInvertedDice1 className="fill-gray-400 w-full h-full" />
@@ -41,6 +47,9 @@ export default function DisplayDice({ diceNumber }: DisplayDiceProps) {
       {diceNumber === 6 && (
         <GiInvertedDice6 className="fill-purple-400 w-full h-full" />
       )}
-    </div>
+      {diceNumber === 7 && (
+        <GiPlainSquare className="fill-zinc-400 w-full h-full" />
+      )}
+    </motion.div>
   );
 }
