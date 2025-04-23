@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import GameBoard from "../components/merge/GameBoard";
 import ScoreBoard from "../components/merge/ScoreBoard";
 import CreateDice from "../components/merge/CreateDice";
 import { mergeConnectedDice } from "../utils/gameEngine";
 import Modal from "../components/Modal";
+import { getHighScore } from "../utils/storage";
 
 type gameBoard = (number | null)[][];
 
@@ -53,7 +55,8 @@ export default function MergeDice() {
   // 빈칸이 없고 게임이 끝나지 않은 경우
   const hasNull = gameBoard.some((row) => row.some((cell) => cell === null));
   console.log(hasNull);
-  if (!hasNull) {
+  const prevHighScore = getHighScore();
+  if (!hasNull && gameScore > prevHighScore) {
     localStorage.setItem("gameScore", String(gameScore));
   }
 

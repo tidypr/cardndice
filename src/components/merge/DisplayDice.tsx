@@ -14,7 +14,7 @@ import {
   GiInvertedDice5,
   GiInvertedDice6,
   GiPlainSquare,
-  // GiDiceSixFacesOne,
+  GiDiceSixFacesOne,
   // GiDiceSixFacesTwo,
   // GiDiceSixFacesThree,
   // GiDiceSixFacesFour,
@@ -48,7 +48,22 @@ export default function DisplayDice({ diceNumber, ...rest }: DisplayDiceProps) {
         <GiInvertedDice6 className="fill-purple-400 w-full h-full" />
       )}
       {diceNumber === 7 && (
-        <GiPlainSquare className="fill-zinc-400 w-full h-full" />
+        <GiInvertedDice1 className="fill-gray-800 w-full h-full" />
+      )}
+      {diceNumber === 8 && (
+        <GiInvertedDice2 className="fill-yellow-800 w-full h-full" />
+      )}
+      {diceNumber === 9 && (
+        <GiInvertedDice3 className="fill-red-800 w-full h-full" />
+      )}
+      {diceNumber === 10 && (
+        <GiInvertedDice4 className="fill-green-800 w-full h-full" />
+      )}
+      {diceNumber === 11 && (
+        <GiInvertedDice5 className="fill-blue-800 w-full h-full" />
+      )}
+      {diceNumber === 12 && (
+        <GiInvertedDice6 className="fill-purple-800 w-full h-full" />
       )}
     </motion.div>
   );

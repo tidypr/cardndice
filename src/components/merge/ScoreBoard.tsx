@@ -1,16 +1,10 @@
 import { GiLaurelsTrophy } from "react-icons/gi";
+import { getHighScore } from "../../utils/storage";
 
 type ScoreBoardProps = {
   gameScore: number;
 };
 
-const getHighScore = () => {
-  const highScore = localStorage.getItem("gameScore");
-  if (highScore) {
-    return parseInt(highScore, 10);
-  }
-  return 0;
-}
 
 export default function ScoreBoard({ gameScore }: ScoreBoardProps) {
   const highScore = getHighScore();
